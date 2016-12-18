@@ -31,3 +31,4 @@
     int prefetchCount = 1;
     channel.basicQos(prefetchCount);
 ## 3.Publish/Subscribe
+![示例图](https://raw.githubusercontent.com/yummykang/res/master/exchanges.png)
