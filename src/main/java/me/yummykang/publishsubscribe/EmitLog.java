@@ -1,9 +1,8 @@
-package me.yummykang.workqueues;
+package me.yummykang.publishsubscribe;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
-import com.rabbitmq.client.MessageProperties;
 
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
@@ -12,19 +11,19 @@ import java.util.concurrent.TimeoutException;
  * write some dec. here.
  * Created by Demon on 2016/12/18 0018.
  */
-public class NewTask {
-    private static final String QUEUE_NAME = "hello";
+public class EmitLog {
+    private static final String EXCHANGE_NAME = "logs";
 
     public static void main(String[] args) throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("localhost");
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
-        channel.queueDeclare(QUEUE_NAME, true, false, false, null);
+        channel.exchangeDeclare(EXCHANGE_NAME, "fanout");
 
         String message = getMessage(args);
-        // MessageProperties.PERSISTENT_TEXT_PLAIN:mark our messages as persistent
-        channel.basicPublish("", QUEUE_NAME, MessageProperties.PERSISTENT_TEXT_PLAIN, message.getBytes());
+
+        channel.basicPublish(EXCHANGE_NAME, "", null, message.getBytes());
         System.out.println(" [x] Sent '" + message + "'");
 
         channel.close();
@@ -46,5 +45,4 @@ public class NewTask {
         }
         return words.toString();
     }
-
 }
