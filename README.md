@@ -1,5 +1,4 @@
-# rabbitmq-demo
-
+# rabbitmq-demo，[官网教程地址](http://www.rabbitmq.com/getstarted.html)
 ## 1.Hello World
 ### 这个没什么好说的，就是一个Provier，一个Queue，一个Consumer。典型的生产者消费者模式。
 
