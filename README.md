@@ -54,3 +54,8 @@ Routing分为2种主要：
 字义来理解就是根据topics来订阅，有2种通配符：
 ### 1) #,表示匹配0到多个，routingKey是#其实就是broadcast(fanout)的意思了
 ### 2) *,表示匹配1个单词
+
+## 6.RPC
+![示例图](https://raw.githubusercontent.com/yummykang/res/master/python-six.png)
+
+Remote Procedure Call
