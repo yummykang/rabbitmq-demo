@@ -46,3 +46,11 @@ Routing分为2种主要：
 ![示例图](https://raw.githubusercontent.com/yummykang/res/master/direct-exchange.png)
 ### 2）Multiple bindings
 ![示例图](https://raw.githubusercontent.com/yummykang/res/master/direct-exchange-multiple.png)
+
+
+## 5.Topics
+![示例图](https://raw.githubusercontent.com/yummykang/res/master/python-five.png)
+
+字义来理解就是根据topics来订阅，有2种通配符：
+### 1) #,表示匹配0到多个，routingKey是#其实就是broadcast(fanout)的意思了
+### 2) *,表示匹配1个单词
