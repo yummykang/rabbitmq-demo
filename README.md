@@ -34,3 +34,15 @@
 
 X是Exchanges，负责接收provider的消息并push到相应的queue中去，有几种默认的exchange type:direct, topic, headers and fanout.
 fanout就是我们用于分发的一种exchange type.
+
+## 4.Routing
+![示例图](https://raw.githubusercontent.com/yummykang/res/master/python-four.png)
+
+类似于路由，就是指定去订阅感兴趣的exchange。Consumer利用channel.queueBind(queueName, exchangeName, "black")去绑定感兴趣的
+exchange。
+
+Routing分为2种主要：
+### 1）Direct exchange
+![示例图](https://raw.githubusercontent.com/yummykang/res/master/direct-exchange.png)
+### 2）Multiple bindings
+![示例图](https://raw.githubusercontent.com/yummykang/res/master/direct-exchange-multiple.png)
